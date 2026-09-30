@@ -1,0 +1,16 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
+  main:
+    banner-mode: "off"
+
+cors:
+  allowed-origins: http://localhost:3000,http://localhost:5173
+
+logging:
+  level:
+    root: WARN
+    com.jerseyhub: DEBUG

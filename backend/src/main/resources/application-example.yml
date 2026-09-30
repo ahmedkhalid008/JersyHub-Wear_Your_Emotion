@@ -1,0 +1,35 @@
+# Safe template for production environment variable setup
+# Copy this file to application-prod-override.yml or export these environment variables before running in production.
+
+PORT: 8080
+SPRING_PROFILES_ACTIVE: prod
+
+# Database configuration
+SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/jerseyhub_prod
+SPRING_DATASOURCE_USERNAME: jerseyhub_prod_user
+SPRING_DATASOURCE_PASSWORD: YOUR_SECURE_DATABASE_PASSWORD_HERE
+DB_POOL_MAX: 20
+DB_POOL_MIN_IDLE: 5
+
+# Security & JWT configuration
+# Secret MUST be at least 256 bits (32 bytes / 64 hex characters)
+JWT_SECRET: YOUR_MINIMUM_64_HEX_CHARACTERS_SECURE_JWT_SECRET_HERE
+JWT_ACCESS_TOKEN_EXPIRATION: 900000 # 15 minutes
+JWT_REFRESH_TOKEN_EXPIRATION: 604800000 # 7 days
+
+# CORS configuration (comma-separated origins)
+CORS_ALLOWED_ORIGINS: https://jerseyhub.com,https://www.jerseyhub.com
+
+# Payment gateway configuration (SSLCommerz)
+SSLCOMMERZ_STORE_ID: YOUR_PRODUCTION_SSLCOMMERZ_STORE_ID
+SSLCOMMERZ_STORE_PASSWORD: YOUR_PRODUCTION_SSLCOMMERZ_STORE_PASSWORD
+SSLCOMMERZ_IS_SANDBOX: false
+
+# Cloudinary image storage credentials
+CLOUDINARY_CLOUD_NAME: YOUR_CLOUDINARY_CLOUD_NAME
+CLOUDINARY_API_KEY: YOUR_CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET: YOUR_CLOUDINARY_API_SECRET
+
+# Swagger UI toggle for production
+SWAGGER_ENABLED: false
+SPRINGDOC_ENABLED: false
